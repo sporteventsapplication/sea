@@ -1,0 +1,5 @@
+<table>
+  <tr *ngFor="let event of events" [routerLink]="['/event',event.id]">
+    <td>{{event.name}}</td>
+  </tr>
+</table>

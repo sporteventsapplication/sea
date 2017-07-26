@@ -1,0 +1,9 @@
+<div *ngIf="event">
+  <h2>
+    {{event.name}} details !
+  </h2>
+  <label>name:</label>
+  <input [(ngModel)]="event.name" placeholder="name">
+  <button (click)="save()">Save</button>
+  <button (click)="goBack()">Back</button>
+</div>
