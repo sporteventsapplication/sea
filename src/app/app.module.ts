@@ -15,12 +15,16 @@ import { InMemoryDataService }  from './in-memory-data.service';
 import { EventService} from './events/event.service';
 import { UserService } from './users/user.service';
 import { FormsModule } from '@angular/forms';
+import { EventCreateComponent } from './events/event-create/event-create.component';
+import { UserCreateComponent } from './users/user-create/user-create.component';
 
 const appRoutes: Routes = [
-{path:'events',component: EventListComponent},
+{path:'events',component: EventListComponent,},
 {path:'event/:id', component: EventDetailComponent},
+{path:'createEvent', component: EventCreateComponent},
 {path:'users',component: UserListComponent},
-{path:'user/:id', component:UserDetailComponent}
+{path:'user/:id', component:UserDetailComponent},
+{path:'createUser', component:UserCreateComponent}
 ];
 
 @NgModule({
@@ -29,7 +33,9 @@ const appRoutes: Routes = [
     EventListComponent,
     EventDetailComponent,
     UserListComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    EventCreateComponent,
+    UserCreateComponent
   ],
   imports: [
     RouterModule.forRoot(

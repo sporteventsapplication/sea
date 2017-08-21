@@ -18,6 +18,14 @@ export class UserListComponent implements OnInit {
     );
   }
 
+  delete(user : User):void {
+    this.userService
+    .delete(user.id)
+    .then(()=>{
+      this.users = this.users.filter(h => h!==user);
+    });
+  }
+
   ngOnInit() {
     this.getUsers();
   }

@@ -1,5 +1,6 @@
+<button [routerLink]="['/createEvent']">Create Event</button>
 <table>
   <tr *ngFor="let event of events" [routerLink]="['/event',event.id]">
-    <td>{{event.name}}</td>
+    <td>{{event.name}}<button (click)="delete(event); $event.stopPropagation()">x</button></td>
   </tr>
 </table>

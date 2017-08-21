@@ -18,6 +18,14 @@ export class EventListComponent implements OnInit {
     );
   }
 
+  delete(event : Event):void {
+    this.eventService
+    .delete(event.id)
+    .then(()=>{
+      this.events = this.events.filter(h => h!==event);
+    });
+  }
+
   ngOnInit() {
     this.getEvents();
   }
