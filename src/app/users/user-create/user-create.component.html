@@ -1,7 +1,6 @@
 <div class="container">
   <div [hidden]="submitted">
-    <h1>User Form</h1>
-    <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+    <form #userForm="ngForm">
       <div class="form-group">
         <label for="name">Name</label>
         <input type="text" class="form-control" id="name" required [(ngModel)]="model.name" name="name" #name="ngModel">
@@ -9,10 +8,9 @@
           Name is required
         </div>
       </div>
-
-      <button type="submit" class="btn btn-success" [disabled]="!userForm.form.valid">Submit</button>
-
     </form>
+    <button type="button" (click)="goBack()" class="btn btn-secondary">Back</button>
+    <button type="button" (click)="onSubmit()" class="btn btn-success" [disabled]="!userForm.form.valid">Submit</button>
   </div>
   <div [hidden]="!submitted">
     Sauvegarde en cours....

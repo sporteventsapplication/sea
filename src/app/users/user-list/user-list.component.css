@@ -1,0 +1,30 @@
+table {
+    margin-top: 32px;
+}
+
+#crtUsBtn {
+    margin-top: 16px;
+}
+
+#dltUsBtn {
+    float: right;
+}
+
+td {
+    padding-left: 5%;
+    padding-right: 5%;
+    vertical-align: middle !important;
+    cursor: pointer;
+}
+
+table tr {
+    background: white;
+    transition: background 0.7s;
+    border-radius: 50px;
+}
+
+table tr:hover {
+    background: rgb(241, 241, 241);
+    transition: background 0.7s;
+    border-radius: 50px;
+}

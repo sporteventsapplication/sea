@@ -1,11 +1,57 @@
 /* You can add global styles to this file, and also import other style files */
-@import url("https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css");
+
+button {
+  cursor: pointer;
+}
 
 .ng-valid[required], .ng-valid.required  {
-  border-left: 5px solid #42A948; /* green */
+  border-left: 5px solid #42A948; 
 }
 
 .ng-invalid:not(form)  {
-  border-left: 5px solid #a94442; /* red */
+  border-left: 5px solid #a94442; 
 }
 
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+  background-color: #437DA8 !important;
+  border-radius: 0;
+  border-color: white;
+}
+
+a {
+  color: #437DA8 !important;
+  text-decoration:none !important;
+  padding:4px;
+  border-radius: 10px;  
+  font-size: larger;
+}
+
+a:hover {  
+  background-color: rgb(238, 238, 238);    
+}
+
+a.active {  
+  background-color:#D7D7D7; 
+}
+
+td {
+  color: #437DA8 !important;
+}
+
+.headline {
+  line-height: 1.5em!important;
+  color: #437DA8 !important;
+  font-size: 20px!important;
+}
+
+  h1:after
+  {
+  content:' '!important;
+  display:block!important;
+  color: #53B4C8 !important;
+  border:2px solid !important;
+  }
+
+  .btn-success.disabled, .btn-success:disabled {
+    cursor: not-allowed;
+  }

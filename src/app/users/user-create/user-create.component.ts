@@ -10,28 +10,32 @@ import { Location } from '@angular/common';
 })
 export class UserCreateComponent implements OnInit {
 
-  model:User;
-  submitted:boolean;
+  model: User;
+  submitted: boolean;
 
   constructor(
-    private userService:UserService,
-    private location:Location
-    ) { }
+    private userService: UserService,
+    private location: Location
+  ) { }
 
   ngOnInit() {
-    this.model = new User(null,"Nom de l'utilisateur");
+    this.model = new User(null, "Nom de l'utilisateur");
     this.submitted = false;
   }
 
-  onSubmit():void{
-    this.submitted = true;
-    this.userService.create(this.model.name)
-    .then(user => {
-      this.location.back();
-    })
+  goBack(): void {
+    this.location.back();
   }
 
-  get diagnostic(){
+  onSubmit(): void {
+    this.submitted = true;
+    this.userService.create(this.model.name)
+      .then(user => {
+        this.location.back();
+      })
+  }
+
+  get diagnostic() {
     return JSON.stringify(this.model);
   }
 

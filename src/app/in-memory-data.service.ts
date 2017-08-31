@@ -2,31 +2,31 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const users = [
-      { id: 0,  name: 'Zero' },
-      { id: 1, name: 'Mr. Nice' },
-      { id: 2, name: 'Narco' },
+      { id: 0,  name: 'Jean marc Lassute' },
+      { id: 1, name: 'Andre Francis' },
+      { id: 2, name: 'Narco de la mocha' },
       { id: 3, name: 'Bombasto' },
-      { id: 4, name: 'Celeritas' },
-      { id: 5, name: 'Magneta' },
-      { id: 6, name: 'RubberMan' },
-      { id: 7, name: 'Dynama' },
-      { id: 8, name: 'Dr IQ' },
-      { id: 9, name: 'Magma' },
-      { id: 10, name: 'Tornado' }
+      { id: 4, name: 'Celeritas de la fristas de la muerte' },
+      { id: 5, name: 'Magneta coucoule' },
+      { id: 6, name: 'RubberMan lepige' },
+      { id: 7, name: 'Dynama kukoulea' },
+      { id: 8, name: 'Dr IQ savate' },
+      { id: 9, name: 'Magma feufeu' },
+      { id: 10, name: 'Tornado couicouic' }
     ];
 
     const events = [
-      { id: 0, name: 'Event 1' },
-      { id: 1, name: 'Event 2' },
-      { id: 2, name: 'Event 3' },
-      { id: 3, name: 'Event 4' },
-      { id: 4, name: 'Event 5' },
-      { id: 5, name: 'Event 6' },
-      { id: 6, name: 'Event 7' },
-      { id: 7, name: 'Event 8' },
-      { id: 8, name: 'Event 9' },
-      { id: 9, name: 'Event 10' },
-      { id: 10, name: 'Event 11' }
+      { id: 0, name: 'Pot entre amis' },
+      { id: 1, name: 'Anniversaire de kiki' },
+      { id: 2, name: 'Football Goal' },
+      { id: 3, name: 'Apero dans le jardin' },
+      { id: 4, name: 'Jeux videos' },
+      { id: 5, name: 'Couscous paella apericubes' },
+      { id: 6, name: 'Transate piscine rosé' },
+      { id: 7, name: 'Babyfoot cigares' },
+      { id: 8, name: 'Cinema' },
+      { id: 9, name: 'EVG en australie' },
+      { id: 10, name: 'Telefilm arte' }
     ];
 
     return {users,events};

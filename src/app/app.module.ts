@@ -17,6 +17,8 @@ import { UserService } from './users/user.service';
 import { FormsModule } from '@angular/forms';
 import { EventCreateComponent } from './events/event-create/event-create.component';
 import { UserCreateComponent } from './users/user-create/user-create.component';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+
 
 const appRoutes: Routes = [
 {path:'events',component: EventListComponent,},
@@ -44,9 +46,10 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpModule,
     FormsModule,
+    BsDropdownModule.forRoot(),
     InMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
   providers: [EventService,UserService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
