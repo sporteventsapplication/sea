@@ -1,7 +1,7 @@
 <button id="crtEvBtn" type="button" class="btn btn-primary" [routerLink]="['/createEvent']">Create Event</button>
 <table class="table">
   <tbody>
-  <tr *ngFor="let event of events" [routerLink]="['/event',event.id]">
+  <tr *ngFor="let event of events" [routerLink]="['/events',event.id]">
     <td>{{event.name}}</td>
     <td><button id="dltEvBtn" class="btn btn-danger" (click)="delete(event); $event.stopPropagation()">Delete</button></td>
   </tr>

@@ -30,9 +30,9 @@ a:hover {
   background-color: rgb(238, 238, 238);    
 }
 
-a.active {  
+a.selectedNav {  
   background-color:#D7D7D7; 
-}
+} 
 
 td {
   color: #437DA8 !important;

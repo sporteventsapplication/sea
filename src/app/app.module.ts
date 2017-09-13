@@ -22,10 +22,10 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 const appRoutes: Routes = [
 {path:'events',component: EventListComponent,},
-{path:'event/:id', component: EventDetailComponent},
+{path:'events/:id', component: EventDetailComponent},
 {path:'createEvent', component: EventCreateComponent},
 {path:'users',component: UserListComponent},
-{path:'user/:id', component:UserDetailComponent},
+{path:'users/:id', component:UserDetailComponent},
 {path:'createUser', component:UserCreateComponent}
 ];
 
