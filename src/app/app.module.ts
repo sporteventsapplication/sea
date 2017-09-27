@@ -3,6 +3,7 @@ import { RouterModule, Routes} from '@angular/router';
 import { NgModule } from '@angular/core';
 import { HttpModule} from '@angular/http';
 
+
 import { AppComponent } from './app.component';
 import { EventListComponent } from './events/event-list/event-list.component';
 import { EventDetailComponent } from './events/event-detail/event-detail.component';
@@ -18,6 +19,10 @@ import { FormsModule } from '@angular/forms';
 import { EventCreateComponent } from './events/event-create/event-create.component';
 import { UserCreateComponent } from './users/user-create/user-create.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 
 const appRoutes: Routes = [
@@ -47,7 +52,8 @@ const appRoutes: Routes = [
     HttpModule,
     FormsModule,
     BsDropdownModule.forRoot(),
-    InMemoryWebApiModule.forRoot(InMemoryDataService)
+    InMemoryWebApiModule.forRoot(InMemoryDataService),
+    BrowserAnimationsModule
   ],
   providers: [EventService,UserService],
   bootstrap: [AppComponent]

@@ -35,11 +35,11 @@ export class EventService {
         .catch(this.handleError);
     }
 
-    create(name:string): Promise<Event> {
+    create(event:Event): Promise<Event> {
         return this.http
-        .post(this.eventsUrl,JSON.stringify({name:name}),{headers:this.headers})
+        .post(this.eventsUrl,JSON.stringify(event),{headers:this.headers})
         .toPromise()
-        .then(res => res.json().data as Event)
+        .then(()=>event)
         .catch(this.handleError);
     }
 

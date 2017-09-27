@@ -9,6 +9,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./event-create.component.css']
 })
 export class EventCreateComponent implements OnInit {
+
   model: Event;
   submitted: boolean;
 
@@ -17,8 +18,9 @@ export class EventCreateComponent implements OnInit {
     private location: Location
   ) { }
 
+  
   ngOnInit() {
-    this.model = new Event(null, "Nom de l'evenement");
+    this.model = new Event(null, "Nom de l'evenement","2017-09-20 15:12","2017-09-20","");
     this.submitted = false;
   }
 
@@ -28,7 +30,7 @@ export class EventCreateComponent implements OnInit {
 
   onSubmit(): void {
     this.submitted = true;
-    this.eventService.create(this.model.name)
+    this.eventService.create(this.model)
       .then(event => {
         this.location.back();
       })
@@ -36,6 +38,6 @@ export class EventCreateComponent implements OnInit {
 
   get diagnostic() {
     return JSON.stringify(this.model);
-  }
+  }  
 
 }

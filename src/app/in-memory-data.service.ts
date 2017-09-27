@@ -16,17 +16,17 @@ export class InMemoryDataService implements InMemoryDbService {
     ];
 
     const events = [
-      { id: 0, name: 'Pot entre amis' },
-      { id: 1, name: 'Anniversaire de kiki' },
-      { id: 2, name: 'Football Goal' },
-      { id: 3, name: 'Apero dans le jardin' },
-      { id: 4, name: 'Jeux videos' },
-      { id: 5, name: 'Couscous paella apericubes' },
-      { id: 6, name: 'Transate piscine rosé' },
-      { id: 7, name: 'Babyfoot cigares' },
-      { id: 8, name: 'Cinema' },
-      { id: 9, name: 'EVG en australie' },
-      { id: 10, name: 'Telefilm arte' }
+      { id: 0, name: 'Pot entre amis',startDate:'2017-09-27 15:00:00',endDate:'2017-09-28 15:00:00',description:'des 1' },
+      { id: 1, name: 'Anniversaire de kiki',startDate:'2017-09-27 15:00:00',endDate:'2017-09-28 15:00:00',description:'des 2' },
+      { id: 2, name: 'Football Goal',startDate:'2017-09-27 15:00:00',endDate:'2017-09-28 15:00:00',description:'des 3' },
+      { id: 3, name: 'Apero dans le jardin',startDate:'2017-09-27 15:00:00',endDate:'2017-09-28 15:00:00',description:'des 4' },
+      { id: 4, name: 'Jeux videos',startDate:'2017-09-27 15:00:00',endDate:'2017-09-28 15:00:00',description:'des 5' },
+      { id: 5, name: 'Couscous paella apericubes',startDate:'2017-09-27 15:00:00',endDate:'2017-09-28 15:00:00',description:'des 6' },
+      { id: 6, name: 'Transate piscine rosé',startDate:'2017-09-27 15:00:00',endDate:'2017-09-28 15:00:00',description:'des 7' },
+      { id: 7, name: 'Babyfoot cigares' ,startDate:'2017-09-27 15:00:00',endDate:'2017-09-28 15:00:00',description:'des 8'},
+      { id: 8, name: 'Cinema' ,startDate:'2017-09-27 15:00:00',endDate:'2017-09-28 15:00:00',description:'des 9'},
+      { id: 9, name: 'EVG en australie',startDate:'2017-09-27 15:00:00',endDate:'2017-09-28 15:00:00',description:'des 10' },
+      { id: 10, name: 'Telefilm arte' ,startDate:'2017-09-27 15:00:00',endDate:'2017-09-28 15:00:00',description:'des 11'}
     ];
 
     return {users,events};

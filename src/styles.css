@@ -4,7 +4,7 @@ button {
   cursor: pointer;
 }
 
-.ng-valid[required], .ng-valid.required  {
+.ng-valid[required], .ng-valid.required, .ng-valid[notrequired], .ng-valid.notrequired{
   border-left: 5px solid #42A948; 
 }
 

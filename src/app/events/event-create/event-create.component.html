@@ -7,6 +7,18 @@
         Name is required
       </div>
     </div>
+    <label for="startDate">Start Date</label>
+    <div class="form-group">
+      <input type="text" required class="form-control" [(ngModel)]="model.startDate" name="startDate"/>
+    </div>
+    <label for="endDate">End Date</label>
+    <div class="form-group">
+      <input type="text" required class="form-control" [(ngModel)]="model.endDate" name="endDate"/>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea rows="10" class="form-control" id="description" notrequired [(ngModel)]="model.description" name="description" #description="ngModel"></textarea>
+    </div>
   </form>
   <button type="button" (click)="goBack()" class="btn btn-secondary">Back</button>
   <button type="button" (click)="onSubmit()" class="btn btn-success" [disabled]="!eventForm.form.valid">Submit</button>
