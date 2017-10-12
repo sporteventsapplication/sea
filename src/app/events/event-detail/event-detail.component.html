@@ -7,19 +7,40 @@
         Name is required
       </div>
     </div>
-    <label for="startDate">Start Date</label>
-    <div class="form-group">     
-        <input type="text"  class="form-control" required [(ngModel)]="event.startDate" name="startDate"/>
-    </div>
-    <label for="endDate">End Date</label>
-    <div class="form-group">      
-        <input type="text"  class="form-control" required [(ngModel)]="event.endDate" name="endDate"/>
+    <div class="row vertical-align">
+      <div class="col-md-6">
+        <label for="startDate">Start Date</label>
+        <div class="form-group">
+          <div class="row vertical-align">
+            <div class="col-lg-6">
+              <ngb-datepicker #dpS [(ngModel)]="startDateStruct" (navigate)="startNavDate = $event.next" name="startDate"></ngb-datepicker>
+            </div>
+            <div class="col-lg-6">
+              <ngb-timepicker [(ngModel)]="startTimeStruct" name="startTime"></ngb-timepicker>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="endDate">End Date</label>
+        <div class="form-group">
+          <div class="row vertical-align">
+            <div class="col-lg-6">
+              <ngb-datepicker #dpE [(ngModel)]="endDateStruct" (navigate)="endNavDate = $event.next" name="endDate"></ngb-datepicker>
+            </div>
+            <div class="col-lg-6">
+              <ngb-timepicker [(ngModel)]="endTimeStruct" name="endTime"></ngb-timepicker>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label for="description">Description</label>
-      <textarea rows="10" class="form-control" id="description" notrequired [(ngModel)]="event.description" name="description" #description="ngModel"></textarea>
+      <textarea rows="10" class="form-control" id="description" notrequired [(ngModel)]="event.description" name="description"
+        #description="ngModel"></textarea>
     </div>
   </form>
   <button type="button" (click)="goBack()" class="btn btn-secondary">Back</button>
-  <button type="button" (click)="save()" class="btn btn-success" [disabled]="!eventForm.form.valid">Save</button>  
+  <button type="button" (click)="save()" class="btn btn-success" [disabled]="!eventForm.form.valid">Save</button>
 </div>

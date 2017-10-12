@@ -22,7 +22,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 const appRoutes: Routes = [
@@ -53,7 +53,8 @@ const appRoutes: Routes = [
     FormsModule,
     BsDropdownModule.forRoot(),
     InMemoryWebApiModule.forRoot(InMemoryDataService),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgbModule.forRoot()
   ],
   providers: [EventService,UserService],
   bootstrap: [AppComponent]
