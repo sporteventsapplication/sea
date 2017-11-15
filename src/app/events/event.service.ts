@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import { Event } from './Event';
+import { User } from '../users/user';
 
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class EventService {
   private eventsUrl = "api/events";
+  private usersUrl = "api/users";
+  private usersOfEventUrl = "api/usersofevent";
   private headers = new Headers({'Content-Type':'application/json'});
 
   constructor(private http: Http) { }
@@ -23,6 +26,13 @@ export class EventService {
     return this.http.get(url)
     .toPromise()
     .then(response => response.json().data as Event)
+    .catch(this.handleError);
+  }
+
+  getUsersOfEvent(id:number):Promise<any>{
+    return this.http.get(this.usersOfEventUrl)
+    .toPromise()
+    .then(response => response.json().data)
     .catch(this.handleError);
   }
 

@@ -41,6 +41,7 @@
         #description="ngModel"></textarea>
     </div>
   </form>
+  <app-event-users-list [eventId]="event.id"></app-event-users-list>
   <button type="button" (click)="goBack()" class="btn btn-secondary">Back</button>
   <button type="button" (click)="save()" class="btn btn-success" [disabled]="!eventForm.form.valid">Save</button>
 </div>

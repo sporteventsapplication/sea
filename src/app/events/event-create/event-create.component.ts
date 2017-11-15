@@ -3,6 +3,7 @@ import { Event } from '../Event';
 import { EventService } from '../event.service';
 import { Location } from '@angular/common';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { User } from '../../users/user';
 
 @Component({
   selector: 'app-event-create',
@@ -21,6 +22,9 @@ export class EventCreateComponent implements OnInit {
   startNavDate: {year: number, month: number};
   endNavDate: {year: number, month: number};
 
+  participants: User[];
+  noparticipants: User[];
+
   constructor(
     private eventService: EventService,
     private location: Location
@@ -30,6 +34,11 @@ export class EventCreateComponent implements OnInit {
   ngOnInit() {
     this.model = new Event(null, "Nom de l'evenement","2017-09-20 15:12","2017-09-20","");
     this.submitted = false;
+  }
+
+  onNotify(listeUtilisteurs:any):void {
+    this.participants=listeUtilisteurs[0];
+    this.noparticipants=listeUtilisteurs[1];    
   }
 
   goBack(): void {

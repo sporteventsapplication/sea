@@ -2,7 +2,6 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const users = [
-      { id: 0,  name: 'Jean marc Lassute' },
       { id: 1, name: 'Andre Francis' },
       { id: 2, name: 'Narco de la mocha' },
       { id: 3, name: 'Bombasto' },
@@ -16,7 +15,6 @@ export class InMemoryDataService implements InMemoryDbService {
     ];
 
     const events = [
-      { id: 0, name: 'Pot entre amis',startDate:'2017-09-27 15:00:00',endDate:'2017-09-28 15:00:00',description:'des 1' },
       { id: 1, name: 'Anniversaire de kiki',startDate:'2017-09-27 15:00:00',endDate:'2017-09-28 15:00:00',description:'des 2' },
       { id: 2, name: 'Football Goal',startDate:'2017-09-27 15:00:00',endDate:'2017-09-28 15:00:00',description:'des 3' },
       { id: 3, name: 'Apero dans le jardin',startDate:'2017-09-27 15:00:00',endDate:'2017-09-28 15:00:00',description:'des 4' },
@@ -29,6 +27,23 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 10, name: 'Telefilm arte' ,startDate:'2017-09-27 15:00:00',endDate:'2017-09-28 15:00:00',description:'des 11'}
     ];
 
-    return {users,events};
+    const usersofevent = {
+      "participants":[
+      { id: 3, name: 'Bombasto' },   
+      { id: 6, name: 'RubberMan lepige' },    
+      { id: 9, name: 'Magma feufeu' },
+      { id: 10, name: 'Tornado couicouic' }
+    ],
+    "noparticipants":[
+      { id: 1, name: 'Andre Francis' },
+      { id: 2, name: 'Narco de la mocha' },
+      { id: 4, name: 'Celeritas de la fristas de la muerte' },
+      { id: 5, name: 'Magneta coucoule' },
+      { id: 7, name: 'Dynama kukoulea' },
+      { id: 8, name: 'Dr IQ savate' },
+    ]};
+    
+
+    return {users,events,usersofevent};
   }
 }

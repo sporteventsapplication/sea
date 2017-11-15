@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-md-6">
+    <table class="table">
+      <tbody>
+        <tr *ngFor="let participant of participants">
+          <td>{{participant.name}}</td>
+          <td><button class="btn btn-danger" (click)="supprimerParticipant(participant); $event.stopPropagation()">Retirer</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-6">
+    <table class="table">
+      <tbody>
+        <tr *ngFor="let noparticipant of noparticipants">
+          <td>{{noparticipant.name}}</td>
+          <td><button class="btn btn-success" (click)="ajouterParticipant(noparticipant); $event.stopPropagation()">Ajouter</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -23,6 +23,8 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { EventUsersListComponent } from './events/event-users-list/event-users-list.component';
+import { UserEventsListComponent } from './users/user-events-list/user-events-list.component';
 
 
 const appRoutes: Routes = [
@@ -42,7 +44,9 @@ const appRoutes: Routes = [
     UserListComponent,
     UserDetailComponent,
     EventCreateComponent,
-    UserCreateComponent
+    UserCreateComponent,
+    EventUsersListComponent,
+    UserEventsListComponent
   ],
   imports: [
     RouterModule.forRoot(
