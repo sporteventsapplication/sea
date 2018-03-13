@@ -1,6 +1,7 @@
 <h1><span class="headline">Sport Events Application</span></h1>
 <nav style="text-align: center">
-  <a routerLink="/events" routerLinkActive="active" [ngClass]="{'selectedNav': navPart == 'events' }" (click)="setActive('events')">Events</a>
-  <a routerLink="/users" routerLinkActive="active" [ngClass]="{'selectedNav': navPart == 'users' }" (click)="setActive('users')">Users</a>
+  <a routerLink="/home" routerLinkActive="active" (click)="setActive('home')">Home</a>
+  <a routerLink="/events" routerLinkActive="active" (click)="setActive('events')">Events</a>
+  <a routerLink="/users" routerLinkActive="active" (click)="setActive('users')">Users</a>
 </nav>
 <router-outlet></router-outlet>

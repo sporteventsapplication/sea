@@ -12,4 +12,8 @@ export class AppComponent {
   setActive(navPart:string):void{
     this.navPart=navPart;
   }
+
+  ngOnInit() {
+    this.setActive('home');
+  }
 }

@@ -23,11 +23,15 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { FullCalendarModule } from 'ng-fullcalendar';
 import { EventUsersListComponent } from './events/event-users-list/event-users-list.component';
 import { UserEventsListComponent } from './users/user-events-list/user-events-list.component';
+import { HomeComponent } from './home/home.component';
 
 
 const appRoutes: Routes = [
+{ path: '', redirectTo: '/home', pathMatch: 'full' },
+{path:'home',component: HomeComponent,},
 {path:'events',component: EventListComponent,},
 {path:'events/:id', component: EventDetailComponent},
 {path:'createEvent', component: EventCreateComponent},
@@ -46,7 +50,8 @@ const appRoutes: Routes = [
     EventCreateComponent,
     UserCreateComponent,
     EventUsersListComponent,
-    UserEventsListComponent
+    UserEventsListComponent,
+    HomeComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -58,6 +63,7 @@ const appRoutes: Routes = [
     BsDropdownModule.forRoot(),
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     BrowserAnimationsModule,
+    FullCalendarModule,
     NgbModule.forRoot()
   ],
   providers: [EventService,UserService],
