@@ -12,7 +12,6 @@ import { UserDetailComponent } from './users/user-detail/user-detail.component';
 
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 
-import { InMemoryDataService }  from './in-memory-data.service';
 import { EventService} from './events/event.service';
 import { UserService } from './users/user.service';
 import { FormsModule } from '@angular/forms';
@@ -61,7 +60,6 @@ const appRoutes: Routes = [
     HttpModule,
     FormsModule,
     BsDropdownModule.forRoot(),
-    InMemoryWebApiModule.forRoot(InMemoryDataService),
     BrowserAnimationsModule,
     FullCalendarModule,
     NgbModule.forRoot()

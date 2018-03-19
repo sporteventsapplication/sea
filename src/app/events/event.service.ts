@@ -15,24 +15,25 @@ export class EventService {
   constructor(private http: Http) { }
 
   getEvents() : Promise<Event[]> {
-    return this.http.get(this.eventsUrl)
+    return this.http.get("http://localhost:8080/sea/events")
     .toPromise()
-    .then(response => response.json().data as Event[])
+    .then(response => response.json() as Event[])
     .catch(this.handleError);
   }
 
   getEvent(id:number):Promise<Event>{
-    const url = this.eventsUrl+"/"+id;
+    const url = "http://localhost:8080/sea/events"+"/"+id;
     return this.http.get(url)
     .toPromise()
-    .then(response => response.json().data as Event)
+    .then(response => response.json() as Event)
     .catch(this.handleError);
   }
 
   getUsersOfEvent(id:number):Promise<any>{
-    return this.http.get(this.usersOfEventUrl)
+    const url = "http://localhost:8080/sea/events"+"/"+id+"/participants";
+    return this.http.get(url)
     .toPromise()
-    .then(response => response.json().data)
+    .then(response => response.json())
     .catch(this.handleError);
   }
 

@@ -12,17 +12,17 @@ export class UserService {
   constructor(private http: Http) { }
 
   getUsers() : Promise<User[]> {
-    return this.http.get(this.usersUrl)
+    return this.http.get("http://localhost:8080/sea/users")
     .toPromise()
-    .then(response => response.json().data as User[])
+    .then(response => response.json() as User[])
     .catch(this.handleError);
   }
 
   getUser(id:number):Promise<User>{
-    const url = this.usersUrl+"/"+id;
+    const url = "http://localhost:8080/sea/users"+"/"+id;
     return this.http.get(url)
     .toPromise()
-    .then(response => response.json().data as User)
+    .then(response => response.json() as User)
     .catch(this.handleError);
   }
 

@@ -29,7 +29,6 @@ export class EventUsersListComponent implements OnInit {
     if(this.eventId>0){
     this.eventService.getUsersOfEvent(this.eventId).then(
       (results :any)=>{
-        console.log(results);
         this.participants = results['participants'];
         this.noparticipants = results['noparticipants'];
       }
