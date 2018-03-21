@@ -38,7 +38,7 @@ export class EventService {
   }
 
   update(event:Event):Promise<Event> {
-        const url = this.eventsUrl+'/'+event.id;
+        const url = "http://localhost:8080/sea/events"+'/'+event.id;
         return this.http
         .put(url, JSON.stringify(event),{headers:this.headers})
         .toPromise()
@@ -48,14 +48,14 @@ export class EventService {
 
     create(event:Event): Promise<Event> {
         return this.http
-        .post(this.eventsUrl,JSON.stringify(event),{headers:this.headers})
+        .post("http://localhost:8080/sea/events",JSON.stringify(event),{headers:this.headers})
         .toPromise()
         .then(()=>event)
         .catch(this.handleError);
     }
 
     delete(id:number) : Promise<void> {
-        const url = this.eventsUrl+'/'+id;
+        const url = "http://localhost:8080/sea/events"+'/'+id;
         return this.http.delete(url,{headers:this.headers})
         .toPromise()
         .then(()=>null)

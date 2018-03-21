@@ -14,8 +14,6 @@ import { UserService } from '../../users/user.service';
 export class EventUsersListComponent implements OnInit {
   @Input('eventId')  
   eventId: number;
-  @Output() 
-  notify: EventEmitter<any> = new EventEmitter<any>();
 
   participants: User[];
   noparticipants: User[];
@@ -40,14 +38,7 @@ export class EventUsersListComponent implements OnInit {
   }
   }
 
-  updateParticipantsToParent(){
-    var listeUtilisteurs=[];
-    listeUtilisteurs.push(this.participants);
-    listeUtilisteurs.push(this.noparticipants);
-    this.notify.emit(listeUtilisteurs);
-  }
-
-  ajouterParticipant(noparticipant:User){
+    ajouterParticipant(noparticipant:User){
       for (var i = 0; i < this.noparticipants.length; i++) {
         var user = this.noparticipants[i];
         if (noparticipant.id == user.id) {
@@ -55,9 +46,7 @@ export class EventUsersListComponent implements OnInit {
             this.participants.push(user);
             break;
         }
-      } 
-
-      this.updateParticipantsToParent();
+      }
       
   }
 
@@ -69,8 +58,7 @@ export class EventUsersListComponent implements OnInit {
           this.noparticipants.push(user);
           break;
       }
-    } 
-    this.updateParticipantsToParent();
+    }
   }
 
 }

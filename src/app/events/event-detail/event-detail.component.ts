@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 
 import { EventService } from '../event.service';
 import { NgbDateStruct, NgbDatepicker } from '@ng-bootstrap/ng-bootstrap';
+import { EventUsersListComponent } from '../event-users-list/event-users-list.component';
 
 import 'rxjs/add/operator/switchMap';
 
@@ -16,7 +17,8 @@ import 'rxjs/add/operator/switchMap';
 export class EventDetailComponent implements OnInit,AfterViewChecked {
   @Input() event: Event;
   @ViewChild('dpS') startDatePicker:NgbDatepicker;
-  @ViewChild('dpE') endDatePicker:NgbDatepicker;  
+  @ViewChild('dpE') endDatePicker:NgbDatepicker;
+  @ViewChild(EventUsersListComponent) eventUsersList;  
 
   startDateStruct: NgbDateStruct;
   startTimeStruct : {hour: number, minute: number};
@@ -94,6 +96,7 @@ export class EventDetailComponent implements OnInit,AfterViewChecked {
 
   save(): void {
     this.saveDateTimePicker();
+    this.event.users = this.eventUsersList.participants;
     this.eventService.update(this.event)
       .then(() => this.goBack());
   }

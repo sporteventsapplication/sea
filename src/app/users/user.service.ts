@@ -27,7 +27,7 @@ export class UserService {
   }
 
   update(user:User):Promise<User> {
-        const url = this.usersUrl+'/'+user.id;
+        const url = "http://localhost:8080/sea/users"+'/'+user.id;
         return this.http
         .put(url, JSON.stringify(user),{headers:this.headers})
         .toPromise()
@@ -37,14 +37,14 @@ export class UserService {
 
     create(name:string): Promise<User> {
         return this.http
-        .post(this.usersUrl,JSON.stringify({name:name}),{headers:this.headers})
+        .post("http://localhost:8080/sea/users",JSON.stringify({name:name}),{headers:this.headers})
         .toPromise()
         .then(res => res.json().data as User)
         .catch(this.handleError);
     }
 
     delete(id:number) : Promise<void> {
-        const url = this.usersUrl+'/'+id;
+        const url = "http://localhost:8080/sea/users"+'/'+id;
         return this.http.delete(url,{headers:this.headers})
         .toPromise()
         .then(()=>null)

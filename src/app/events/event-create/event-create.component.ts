@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { Event } from '../Event';
 import { EventService } from '../event.service';
 import { Location } from '@angular/common';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { User } from '../../users/user';
+import { EventUsersListComponent } from '../event-users-list/event-users-list.component';
 
 @Component({
   selector: 'app-event-create',
@@ -11,6 +12,7 @@ import { User } from '../../users/user';
   styleUrls: ['./event-create.component.css']
 })
 export class EventCreateComponent implements OnInit {
+  @ViewChild(EventUsersListComponent) eventUsersList;
 
   model: Event;
   submitted: boolean;
@@ -22,9 +24,6 @@ export class EventCreateComponent implements OnInit {
   startNavDate: {year: number, month: number};
   endNavDate: {year: number, month: number};
 
-  participants: User[];
-  noparticipants: User[];
-
   constructor(
     private eventService: EventService,
     private location: Location
@@ -32,15 +31,11 @@ export class EventCreateComponent implements OnInit {
 
   
   ngOnInit() {
-    this.model = new Event(null, "Nom de l'evenement","2017-09-20 15:12","2017-09-20","");
+    this.model = new Event(null, "Nom de l'evenement","","","",[]);
     this.submitted = false;
   }
 
-  onNotify(listeUtilisteurs:any):void {
-    this.participants=listeUtilisteurs[0];
-    this.noparticipants=listeUtilisteurs[1];    
-  }
-
+  
   goBack(): void {
     this.location.back();
   }
@@ -53,6 +48,7 @@ export class EventCreateComponent implements OnInit {
   onSubmit(): void {
     this.submitted = true;
     this.saveDateTimePicker();
+    this.model.users = this.eventUsersList.participants;
     this.eventService.create(this.model)
       .then(event => {
         this.location.back();

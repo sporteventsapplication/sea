@@ -30,7 +30,7 @@ public class Event {
     
     private String description;
     
-    @ManyToMany(cascade=CascadeType.ALL)
+    @ManyToMany
     @JoinTable(
         name="USERS_EVENTS",
         joinColumns=@JoinColumn(name="EVENT_ID", referencedColumnName="ID"),

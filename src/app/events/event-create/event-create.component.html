@@ -40,7 +40,7 @@
       <textarea rows="10" class="form-control" id="description" notrequired [(ngModel)]="model.description" name="description" #description="ngModel"></textarea>
     </div>
   </form>
-  <app-event-users-list [eventId]="0" (notify)='onNotify($event)'></app-event-users-list>
+  <app-event-users-list [eventId]="0" ></app-event-users-list>
   <button type="button" (click)="goBack()" class="btn btn-secondary">Back</button>
   <button type="button" (click)="onSubmit()" class="btn btn-success" [disabled]="!eventForm.form.valid">Submit</button>
 </div>

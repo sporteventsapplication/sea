@@ -26,7 +26,7 @@ public class User {
 
     private String name;
 
-    @ManyToMany(cascade=CascadeType.ALL)
+    @ManyToMany
     @JoinTable(
         name="USERS_EVENTS",
         joinColumns=@JoinColumn(name="USER_ID", referencedColumnName="ID"),

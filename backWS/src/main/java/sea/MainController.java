@@ -12,8 +12,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -123,10 +127,59 @@ public class MainController {
 		return eventRepository.findById(id).get();
 	}
 	
+	@PostMapping(path="/events")
+	public @ResponseBody Event createEvent(@RequestBody Event event) {
+		// This returns a JSON or XML with the users
+		return eventRepository.save(event);
+	}
+	
+	@PutMapping(path="/events/{id}")
+	public @ResponseBody Event updateEventByID(@RequestBody Event event) {
+		// This returns a JSON or XML with the users
+		return eventRepository.save(event);
+	}
+	
+	@DeleteMapping(path="/events/{id}")
+	public @ResponseBody String deleteEventByID(@PathVariable int id) {
+		// This returns a JSON or XML with the users
+		try{
+		eventRepository.deleteById(id);
+		}catch(IllegalArgumentException err){
+			return "NOK";
+		}
+		return "OK";
+	}
+	
 	@GetMapping(path="/events/{id}/participants")
 	public @ResponseBody EventUsers getUsersOfEvent(@PathVariable int id) {
 		EventUsers evU = new EventUsers(userRepository, eventRepository, id);
 		return evU;
+	}
+	
+	//update user
+	@PutMapping(path="/users/{id}")
+	public @ResponseBody User updateUserByID(@RequestBody User user) {
+		// This returns a JSON or XML with the users
+		return userRepository.save(user);
+	}
+	
+	//create user
+	@PostMapping(path="/users")
+	public @ResponseBody User createUser(@RequestBody User user) {
+		// This returns a JSON or XML with the users
+		return userRepository.save(user);
+	}
+	
+	//delete user
+	@DeleteMapping(path="/users/{id}")
+	public @ResponseBody String deleteUserByID(@PathVariable int id) {
+		// This returns a JSON or XML with the users
+		try{
+		userRepository.deleteById(id);
+		}catch(IllegalArgumentException err){
+			return "NOK";
+		}
+		return "OK";
 	}
 	
 	@GetMapping(path="/loadData") // Map ONLY GET Requests
@@ -142,6 +195,13 @@ public class MainController {
 		u1.setName("User 1");
 		u2.setName("User 2");
 		u3.setName("User 3");
+		
+		ArrayList<User>listU=new ArrayList<User>();
+		listU.add(u1);
+		listU.add(u2);
+		listU.add(u3);
+		
+		userRepository.saveAll(listU);
 		
 		//Creation des evenements
 		
