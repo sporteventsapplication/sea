@@ -25,14 +25,14 @@ export class EventUsersListComponent implements OnInit {
     this.participants = [];
     this.noparticipants = [];
     if(this.eventId>0){
-    this.eventService.getUsersOfEvent(this.eventId).then(
+    this.eventService.getUsersOfEvent(this.eventId).subscribe(
       (results :any)=>{
         this.participants = results['participants'];
         this.noparticipants = results['noparticipants'];
       }
     );
   }else{
-    this.userService.getUsers().then(
+    this.userService.getUsers().subscribe(
       results => this.noparticipants=results
     );
   }

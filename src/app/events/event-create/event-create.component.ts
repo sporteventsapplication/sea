@@ -50,7 +50,7 @@ export class EventCreateComponent implements OnInit {
     this.saveDateTimePicker();
     this.model.users = this.eventUsersList.participants;
     this.eventService.create(this.model)
-      .then(event => {
+      .subscribe(event => {
         this.location.back();
       })
   }

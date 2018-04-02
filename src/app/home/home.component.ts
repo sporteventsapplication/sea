@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   constructor(private eventService: EventService,private router: Router) { }
 
   ngOnInit() { 
-    this.eventService.getEvents().then(
+    this.eventService.getEvents().subscribe(
       (events) =>  this.loadEvents(events)
     );
   

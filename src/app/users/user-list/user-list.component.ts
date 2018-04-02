@@ -13,7 +13,7 @@ export class UserListComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   getUsers():void {
-    this.userService.getUsers().then(
+    this.userService.getUsers().subscribe(
       users => this.users = users
     );
   }
@@ -21,7 +21,7 @@ export class UserListComponent implements OnInit {
   delete(user : User):void {
     this.userService
     .delete(user.id)
-    .then(()=>{
+    .subscribe(()=>{
       this.users = this.users.filter(h => h!==user);
     });
   }

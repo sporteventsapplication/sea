@@ -98,7 +98,7 @@ export class EventDetailComponent implements OnInit,AfterViewChecked {
     this.saveDateTimePicker();
     this.event.users = this.eventUsersList.participants;
     this.eventService.update(this.event)
-      .then(() => this.goBack());
+      .subscribe(() => this.goBack());
   }
 
 

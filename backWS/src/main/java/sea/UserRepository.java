@@ -9,4 +9,5 @@ import sea.User;
 
 public interface UserRepository extends CrudRepository<User, Integer> {
 
+	public User findByName(String name);
 }

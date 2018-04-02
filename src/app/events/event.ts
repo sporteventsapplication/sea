@@ -1,6 +1,6 @@
 import { User } from '../users/user';
 
-export class Event {
+export class Event  {
     constructor(
         public id:number,
         public name: string,

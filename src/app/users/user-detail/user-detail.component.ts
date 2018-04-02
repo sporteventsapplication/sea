@@ -34,7 +34,7 @@ export class UserDetailComponent implements OnInit {
 
     save():void {
         this.userService.update(this.user)
-        .then(()=>this.goBack());
+        .subscribe(()=>this.goBack());
     }
 
 }

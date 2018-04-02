@@ -13,7 +13,7 @@ export class EventListComponent implements OnInit {
   constructor(private eventService: EventService) { }
 
   getEvents():void {
-    this.eventService.getEvents().then(
+    this.eventService.getEvents().subscribe(
       events => this.events = events
     );
   }
@@ -21,7 +21,7 @@ export class EventListComponent implements OnInit {
   delete(event : Event):void {
     this.eventService
     .delete(event.id)
-    .then(()=>{
+    .subscribe(()=>{
       this.events = this.events.filter(h => h!==event);
     });
   }

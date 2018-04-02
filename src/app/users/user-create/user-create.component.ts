@@ -30,9 +30,12 @@ export class UserCreateComponent implements OnInit {
   onSubmit(): void {
     this.submitted = true;
     this.userService.create(this.model.name)
-      .then(user => {
+      /*.then(user => {
         this.location.back();
-      })
+      })*/
+      .subscribe(user => {
+        this.location.back();
+      });
   }
 
   get diagnostic() {
