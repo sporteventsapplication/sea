@@ -1,6 +1,11 @@
 package sea.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Consumer;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -16,6 +21,7 @@ import sea.handlers.EventRepository;
 import sea.handlers.UserRepository;
 import sea.models.Event;
 import sea.models.EventUsers;
+import sea.models.User;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @Controller // This means that this class is a Controller
@@ -31,6 +37,7 @@ public class EventsController {
 	private EventRepository eventRepository;
 
 	@GetMapping(path = "")
+	@PreAuthorize("hasAuthority('ADMIN_USER') or hasAuthority('STANDARD_USER')")
 	public @ResponseBody Iterable<Event> getAllEvents() {
 		// This returns a JSON or XML with the users
 		return eventRepository.findAll();
@@ -67,7 +74,35 @@ public class EventsController {
 
 	@GetMapping(path = "/{id}/participants")
 	public @ResponseBody EventUsers getUsersOfEvent(@PathVariable int id) {
-		EventUsers evU = new EventUsers(userRepository, eventRepository, id);
+		//EventUsers evU = new EventUsers(userRepository, eventRepository, id);
+		List<User>participants = eventRepository.findById(id).get().getUsers();
+
+		// Recupere les ID des participants
+		List<Integer> parInt = new ArrayList<Integer>();
+		participants.forEach(new Consumer<User>() {
+
+			@Override
+			public void accept(User u) {
+				parInt.add(u.getId());
+			}
+		});
+
+		List<User>noparticipants = new ArrayList<User>();
+
+		userRepository.findAll().forEach(new Consumer<User>() {
+
+			@Override
+			public void accept(User u) {
+				if (!parInt.contains(u.getId())) {
+					noparticipants.add(u);
+				}
+
+			}
+		});
+		
+		EventUsers evU = new EventUsers();
+		evU.setParticipants(participants);
+		evU.setNoparticipants(noparticipants);
 		return evU;
 	}
 

@@ -26,6 +26,7 @@
     "@types/jasmine": "^2.6.0",
     "@types/jquery": "^3.2.12",
     "angular-webstorage-service": "^1.0.2",
+    "angular2-jwt": "^0.2.3",
     "bootstrap": "4.0.0-beta",
     "bootstrap-datepicker": "^1.7.1",
     "bootstrap-timepicker": "^0.5.2",

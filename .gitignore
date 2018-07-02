@@ -44,3 +44,5 @@ Thumbs.db
 #
 .metadata/
 .recommenders/
+
+/spring-boot-auth/.gradle
